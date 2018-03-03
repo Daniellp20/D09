@@ -84,6 +84,18 @@
 		</property>
 	</bean>
 
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="manager1" />
+		<property name="password" value="c240642ddef994358c96da82c0361a58" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="MANAGER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
 	<!-- Administrator -->
 
 	<bean id="administrator" class="domain.Administrator">
@@ -201,6 +213,24 @@
 		</property>
 	</bean>
 
+	<!-- Managers -->
+	<bean id="manager1" class="domain.Manager">
+		<property name="name" value="manager1" />
+		<property name="surname" value="manager1 Surnames" />
+		<property name="postalAddress" value="postal address manager1" />
+		<property name="phoneNumber" value="+34644657322" />
+		<property name="emailAddress" value="manager1@gmail.com" />
+		<property name="userAccount" ref="userAccount7" />
+		<property name="vat" value="1234565" />
+		<property name="services">
+			<list>
+			<ref bean="service1" />
+			<ref bean="service2" />
+			</list>
+		</property>
+	</bean>
+
+
 	<!-- Rendezvouses -->
 
 	<bean id="rendezvouse1" class="domain.Rendezvouse">
@@ -230,6 +260,11 @@
 				<ref bean="announcement2"></ref>
 			</list>
 		</property>
+		<property name="services">
+			<list>
+				<ref bean="service1" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="rendezvouse2" class="domain.Rendezvouse">
@@ -253,6 +288,11 @@
 		</property>
 		<property name="announcements">
 			<list>
+			</list>
+		</property>
+		<property name="services">
+			<list>
+				<ref bean="service2" />
 			</list>
 		</property>
 	</bean>
@@ -279,6 +319,10 @@
 		<property name="announcements">
 			<list>
 				<ref bean="announcement3"></ref>
+			</list>
+		</property>
+		<property name="services">
+			<list>
 			</list>
 		</property>
 	</bean>
@@ -308,6 +352,10 @@
 				<ref bean="announcement4"></ref>
 			</list>
 		</property>
+		<property name="services">
+			<list>
+			</list>
+		</property>
 	</bean>
 
 	<bean id="rendezvouse5" class="domain.Rendezvouse">
@@ -333,6 +381,10 @@
 		<property name="announcements">
 			<list>
 				<ref bean="announcement5"></ref>
+			</list>
+		</property>
+		<property name="services">
+			<list>
 			</list>
 		</property>
 	</bean>
@@ -526,6 +578,103 @@
 		<property name="latitude" value="43.65" />
 	</bean>
 
-	<!-- Other domain beans come here -->
+	<!-- Services -->
+	<bean id="service1" class="domain.Service">
+		<property name="title" value="title service1" />
+		<property name="description" value="description service 1" />
+		<property name="picture" value="http://www.service1.com" />
+		<property name="cancelled" value="false" />
+		<property name="category" ref="category1" />
+		<property name="rendezvouses">
+			<list>
+				<ref bean="rendezvouse1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="service2" class="domain.Service">
+		<property name="title" value="title service2" />
+		<property name="description" value="description service 2" />
+		<property name="picture" value="http://www.service2.com" />
+		<property name="cancelled" value="false" />
+		<property name="category" ref="category1-1" />
+		<property name="rendezvouses">
+			<list>
+				<ref bean="rendezvouse2" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Categories -->
+	<bean id="category1" class="domain.Category">
+		<property name="name" value="category 1" />
+		<property name="description" value="description category 1" />
+		<!-- <property name="parent" ref="category1" /> -->
+		<property name="childrens">
+			<list>
+				<ref bean="category1-1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="category1-1" class="domain.Category">
+		<property name="name" value="category 1-1" />
+		<property name="description" value="description category 1-1" />
+		<property name="parent" ref="category1" />
+		<property name="childrens">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Requests -->
+	<bean id="request1" class="domain.Request">
+		<property name="comment" value="request user 1" />
+		<property name="creditCard" ref="creditCard1" />
+		<property name="service" ref="service1" />
+		<property name="user" ref="user1" />
+	</bean>
+
+	<!-- CreditCards -->
+	<bean id="creditCard1" class="domain.CreditCard">
+		<property name="holderName" value="user1" />
+		<property name="brandName" value="La caixa" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="03" />
+		<property name="expirationYear" value="20" />
+		<property name="cvv" value="102" />
+	</bean>
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holderName" value="user2" />
+		<property name="brandName" value="Santander" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="05" />
+		<property name="expirationYear" value="21" />
+		<property name="cvv" value="103" />
+	</bean>
+	<bean id="creditCard3" class="domain.CreditCard">
+		<property name="holderName" value="user3" />
+		<property name="brandName" value="Santander" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="06" />
+		<property name="expirationYear" value="17" />
+		<property name="cvv" value="655" />
+	</bean>
+	<bean id="creditCard4" class="domain.CreditCard">
+		<property name="holderName" value="user4" />
+		<property name="brandName" value="Bankia" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="04" />
+		<property name="expirationYear" value="16" />
+		<property name="cvv" value="876" />
+	</bean>
+	<bean id="creditCard5" class="domain.CreditCard">
+		<property name="holderName" value="user5" />
+		<property name="brandName" value="La caixa" />
+		<property name="number" value="4388576018410707" />
+		<property name="expirationMonth" value="05" />
+		<property name="expirationYear" value="18" />
+		<property name="cvv" value="724" />
+	</bean>
 
 </beans>

@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Manager extends DomainEntity {
+public class Manager extends Actor {
 
 	// Attributes -------------------------------------------------------------
 	private String	vat;

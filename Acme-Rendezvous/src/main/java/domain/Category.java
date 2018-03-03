@@ -57,11 +57,11 @@ public class Category extends DomainEntity {
 
 	@Valid
 	@OneToMany(mappedBy = "parent")
-	public Collection<Category> childrens() {
+	public Collection<Category> getChildrens() {
 		return this.childrens;
 	}
 
-	public void setSubCategories(final Collection<Category> childrens) {
+	public void setChildrens(final Collection<Category> childrens) {
 		this.childrens = childrens;
 	}
 }
