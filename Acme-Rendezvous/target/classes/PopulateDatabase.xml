@@ -10,6 +10,14 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	">
 
+	<!-- ConfigurationSystem -->
+	<bean id="configurationSystem" class="domain.ConfigurationSystem">
+		<property name="name" value="Adventure meetups" />
+		<property name="banner" value="https://tinyurl.com/adventure-meetup" />
+		<property name="englishWelcomeMessage" value="Your place to organise your adventure meetups!" />
+		<property name="spanishWelcomeMessage" value="Tu sitio para organizar quedadas de aventura" />
+	</bean>
+
 	<!-- User accounts -->
 
 	<bean id="userAccount1" class="security.UserAccount">
@@ -224,8 +232,8 @@
 		<property name="vat" value="1234565" />
 		<property name="services">
 			<list>
-			<ref bean="service1" />
-			<ref bean="service2" />
+				<ref bean="service1" />
+				<ref bean="service2" />
 			</list>
 		</property>
 	</bean>
@@ -591,7 +599,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="service2" class="domain.Service">
 		<property name="title" value="title service2" />
 		<property name="description" value="description service 2" />
@@ -616,7 +624,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="category1-1" class="domain.Category">
 		<property name="name" value="category 1-1" />
 		<property name="description" value="description category 1-1" />
