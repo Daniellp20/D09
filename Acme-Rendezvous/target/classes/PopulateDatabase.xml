@@ -588,7 +588,7 @@
 
 	<!-- Services -->
 	<bean id="service1" class="domain.Service">
-		<property name="title" value="title service1" />
+		<property name="name" value="title service1" />
 		<property name="description" value="description service 1" />
 		<property name="picture" value="http://www.service1.com" />
 		<property name="cancelled" value="false" />
@@ -601,7 +601,7 @@
 	</bean>
 
 	<bean id="service2" class="domain.Service">
-		<property name="title" value="title service2" />
+		<property name="name" value="title service2" />
 		<property name="description" value="description service 2" />
 		<property name="picture" value="http://www.service2.com" />
 		<property name="cancelled" value="false" />

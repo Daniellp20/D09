@@ -17,19 +17,19 @@ import org.hibernate.validator.constraints.URL;
 @Access(AccessType.PROPERTY)
 public class Service extends DomainEntity {
 
-	private String	title;
+	private String	name;
 	private String	description;
 	private String	picture;
 	private boolean	cancelled;
 
 
 	@NotBlank
-	public String getTitle() {
-		return this.title;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setTitle(final String title) {
-		this.title = title;
+	public void setName(final String name) {
+		this.name = name;
 	}
 
 	@NotBlank
