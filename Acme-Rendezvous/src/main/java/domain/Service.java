@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -76,6 +77,7 @@ public class Service extends DomainEntity {
 
 	@ManyToMany(mappedBy = "services")
 	@Valid
+	@NotNull
 	public Collection<Rendezvouse> getRendezvouses() {
 		return this.rendezvouses;
 	}

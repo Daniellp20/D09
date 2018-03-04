@@ -6,7 +6,6 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -41,7 +40,6 @@ public class Request extends DomainEntity {
 
 
 	@Valid
-	@NotNull
 	@ManyToOne(optional = false)
 	public Service getService() {
 		return this.service;
@@ -52,7 +50,6 @@ public class Request extends DomainEntity {
 	}
 
 	@Valid
-	@NotNull
 	@ManyToOne(optional = false)
 	public User getUser() {
 		return this.user;
